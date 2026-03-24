@@ -1,6 +1,8 @@
-.vscode/
+/.vscode
 node_modules/
 keys/
 .env
-dist/
+
 /postgres
+
+dist/
