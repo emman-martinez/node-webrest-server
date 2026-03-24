@@ -7,7 +7,7 @@
     "dev": "tsnd --respawn --clear src/app.ts",
     "build": "rimraf ./dist && tsc",
     "start": "node dist/app.js",
-    "prisma:migrate:prod": "if [ -n \"$POSTGRES_URL\" ] || [ -n \"$DATABASE_URL\" ]; then prisma migrate deploy; else echo \"Skipping prisma migrate deploy: set POSTGRES_URL or DATABASE_URL to run migrations.\"; fi"
+    "prisma:migrate:prod": "if [ -n \"$POSTGRES_URL\" ] || [ -n \"$DATABASE_URL\" ] || { [ -n \"$PGHOST\" ] && [ -n \"$PGUSER\" ] && [ -n \"$PGPASSWORD\" ] && [ -n \"$PGDATABASE\" ]; }; then prisma migrate deploy; else echo \"Skipping prisma migrate deploy: set POSTGRES_URL or DATABASE_URL, or PGHOST/PGUSER/PGPASSWORD/PGDATABASE to run migrations.\"; fi"
   },
   "keywords": [],
   "author": "Emmanuel Martinez",
