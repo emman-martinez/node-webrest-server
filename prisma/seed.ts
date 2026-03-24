@@ -2,10 +2,13 @@ import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../src/generated/prisma/client";
 
-const connectionString = process.env["POSTGRES_URL"];
+const connectionString =
+  process.env["POSTGRES_URL"] ?? process.env["DATABASE_URL"];
 
 if (!connectionString) {
-  console.error("Missing POSTGRES_URL in environment variables.");
+  console.error(
+    "Missing database URL. Set POSTGRES_URL or DATABASE_URL in environment variables."
+  );
   process.exit(1);
 }
 
