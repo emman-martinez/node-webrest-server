@@ -5,3 +5,5 @@ keys/
 dist/
 postgres/
 /src/generated/prisma
+
+/src/generated/prisma
