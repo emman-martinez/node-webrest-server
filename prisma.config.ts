@@ -6,12 +6,6 @@ import { defineConfig } from "prisma/config";
 const datasourceUrl =
   process.env["POSTGRES_URL"] ?? process.env["DATABASE_URL"];
 
-if (!datasourceUrl) {
-  throw new Error(
-    "Missing database URL. Set POSTGRES_URL or DATABASE_URL in environment variables."
-  );
-}
-
 export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
